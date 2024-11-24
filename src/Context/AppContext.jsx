@@ -1,15 +1,11 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from "./AppReducer";
+import messagesReducer from "../reducers/messagesReducer";
 
-const initialState = {
-  contacts: [], // Example: [{ id: 1, name: "John" }]
-  messages: {}, // Example: { 1: [{ text: "Hi", time: "12:00" }] }
-};
-
-export const AppContext = createContext(initialState);
+const initialState = { contacts: [], messages: [] };
+export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state, dispatch] = useReducer(messagesReducer, initialState);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

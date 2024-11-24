@@ -1,0 +1,18 @@
+import { InstantDB } from "instantdb";
+
+const db = new InstantDB({
+  projectId: "your-project-id",
+  apiKey: "your-api-key",
+});
+
+export const useInstantDB = () => {
+  const getMessages = async (contactId) => {
+    return await db.collection("messages").where("contactId", contactId).get();
+  };
+
+  const sendMessage = async (message) => {
+    await db.collection("messages").add(message);
+  };
+
+  return { getMessages, sendMessage };
+};
