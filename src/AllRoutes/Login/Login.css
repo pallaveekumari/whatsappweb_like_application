@@ -1,0 +1,71 @@
+/* Login.css */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .auth-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-container input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .auth-container input:focus {
+    border-color: #007bff;
+  }
+  
+  .auth-container button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .auth-container button:active {
+    background-color: #003f7f;
+  }
+  
+  @media (max-width: 480px) {
+    .auth-container {
+      margin: 20px;
+      padding: 15px;
+    }
+  
+    .auth-container h2 {
+      font-size: 20px;
+    }
+  
+    .auth-container input,
+    .auth-container button {
+      font-size: 14px;
+    }
+  }
+  

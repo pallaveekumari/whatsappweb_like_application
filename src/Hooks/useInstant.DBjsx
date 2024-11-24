@@ -1,8 +1,8 @@
 import { InstantDB } from "instantdb";
 
 const db = new InstantDB({
-  projectId: "your-project-id",
-  apiKey: "your-api-key",
+  projectId: "7221ed1b-9b0d-42f3-9c66-19c64f5e8ee2",
+  apiKey: "7221ed1b-9b0d-42f3-9c66-19c64f5e8ee2",
 });
 
 export const useInstantDB = () => {

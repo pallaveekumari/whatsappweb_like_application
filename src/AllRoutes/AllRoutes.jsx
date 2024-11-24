@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
-import { useAuth } from "../Context/AuthReducer";
+import { useAuth } from "../Context/AuthContext";
+import HomePage from "./HomePage/HomePage";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -20,7 +21,7 @@ const AllRoutes = () => {
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-
+      <Route path="/" element={<HomePage />} />
       {/* Protected Routes */}
       {/* <Route
           path="/"
