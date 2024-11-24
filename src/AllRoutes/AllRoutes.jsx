@@ -9,6 +9,8 @@ import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import { useAuth } from "../Context/AuthContext";
 import HomePage from "./HomePage/HomePage";
+// import ChatWindow from "../Components/ChatWindow/ChatWindow";
+// import ChatWindow from "../Components/ChatWindow";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -22,6 +24,12 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<HomePage />} />
+      {/* <Route path="/chatwindow" element={<ChatWindow />} /> */}
+      {/* <Route path="/" element={<HomePage />} /> */}
+      {/* <Route path="/" element={<HomePage />} /> */}
+      {/* <Route path="/" element={<HomePage />} /> */}
+      {/* <Route path="/" element={<HomePage />} /> */}
+
       {/* Protected Routes */}
       {/* <Route
           path="/"

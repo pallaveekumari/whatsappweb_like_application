@@ -1,0 +1,91 @@
+/* Chat Window Container */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #eae6df; /* Light beige background similar to WhatsApp */
+    border-left: 1px solid #ddd; /* Divider between chat and contact list */
+    box-sizing: border-box;
+    padding: 16px;
+  }
+  
+  /* Messages Section */
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+  }
+  
+  /* Styling for Individual Messages */
+  .message {
+    max-width: 70%;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 8px;
+    word-wrap: break-word;
+    position: relative;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Outgoing Message Style (sent by user) */
+  .message.outgoing {
+    align-self: flex-end;
+    background-color: #dcf8c6; /* WhatsApp green for outgoing messages */
+    color: #000;
+    border: 1px solid #a1d89a;
+  }
+  
+  /* Incoming Message Style (received messages) */
+  .message.incoming {
+    align-self: flex-start;
+    background-color: #ffffff; /* White for incoming messages */
+    color: #000;
+    border: 1px solid #ddd;
+  }
+  
+  /* Message Input Container */
+  .message-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0; /* Light gray background for input */
+    border-top: 1px solid #ddd;
+    gap: 10px;
+  }
+  
+  /* Scrollbar Customization */
+  .messages::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .messages::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .chat-window {
+      padding: 8px;
+    }
+  
+    .messages {
+      gap: 8px;
+    }
+  
+    .message {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+  }
+  

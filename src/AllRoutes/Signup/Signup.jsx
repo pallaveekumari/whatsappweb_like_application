@@ -5,7 +5,7 @@ import "./Signup.css"; // Import the CSS for the Signup page
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [mobilenumber, setMobileNumber] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -20,9 +20,9 @@ const Signup = () => {
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
       <input
-          type="name"
-          placeholder="Name"
-          value={name}
+          type="mobilenumber"
+          placeholder="Mobile Number"
+          value={mobilenumber}
           onChange={(e) => setEmail(e.target.value)}
           required
         />

@@ -1,25 +1,29 @@
 import React, { useState } from "react";
-import "./MessageInput.css";
+import "./ChatWindow.css";
 
 const MessageInput = ({ onSend }) => {
-  const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSend = () => {
-    if (text.trim()) {
-      onSend(text);
-      setText("");
+  const handleSendMessage = () => {
+    if (message.trim() !== "") {
+      onSend(message);
+      setMessage("");
     }
   };
 
   return (
-    <div className="message-input">
+    <div className="message-input-container">
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        className="message-input"
         placeholder="Type a message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
       />
-      <button onClick={handleSend}>Send</button>
+      <button className="send-button" onClick={handleSendMessage}>
+        ➤
+      </button>
     </div>
   );
 };
