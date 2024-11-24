@@ -1,8 +1,7 @@
 import React from "react";
 import "./ChatWindow.css";
-import Message from "../Message";
-import MessageInput from "../MessageInput";
-
+// import Message from "../Message";
+import MessageInput from "../MessageInput/MessageInput";
 const ChatWindow = ({ messages, onSendMessage }) => {
   return (
     <div className="chat-window">

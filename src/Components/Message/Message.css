@@ -1,0 +1,58 @@
+/* Common styles for all messages */
+.message {
+    max-width: 70%; /* Limit the width of messages */
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    word-wrap: break-word; /* Ensures long words wrap within the container */
+    line-height: 1.5;
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Sent messages */
+  .message.sent {
+    background-color: #007bff; /* Primary color for sent messages */
+    color: white;
+    align-self: flex-end;
+    margin-left: auto; /* Aligns the message to the right */
+    border-top-right-radius: 0; /* Sharp edge on the right for sent messages */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Received messages */
+  .message.received {
+    background-color: #f1f1f1; /* Light gray for received messages */
+    color: #333; /* Darker text color for readability */
+    align-self: flex-start;
+    margin-right: auto; /* Aligns the message to the left */
+    border-top-left-radius: 0; /* Sharp edge on the left for received messages */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .message {
+      font-size: 14px; /* Slightly smaller text on smaller screens */
+      padding: 8px 12px;
+    }
+  
+    .message.sent,
+    .message.received {
+      max-width: 85%; /* Allow more space for messages on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .message {
+      font-size: 12px; /* Compact font size for very small screens */
+      padding: 6px 10px;
+    }
+  
+    .message.sent,
+    .message.received {
+      max-width: 90%; /* Utilize most of the screen width for messages */
+    }
+  }
+  

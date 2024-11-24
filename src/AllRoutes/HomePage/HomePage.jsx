@@ -4,7 +4,8 @@ import ChatWindow from '../../Components/ChatWindow/ChatWindow'
 const HomePage = () => {
   return (
     <div>
-      <ChatWindow/>
+      {/* <ChatWindow/> */}
+      Homepage
     </div>
   )
 }

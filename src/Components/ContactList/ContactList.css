@@ -1,0 +1,64 @@
+/* Main Contact List container */
+.contact-list {
+    width: 100%;
+    max-width: 300px; /* Sets a fixed width for the contact list on larger screens */
+    height: 100%;
+    overflow-y: auto; /* Allows scrolling for a long list of contacts */
+    background-color: #f8f8f8; /* Light background for better contrast */
+    border-right: 1px solid #ddd; /* Divider between contact list and chat window */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  /* Individual contact item styling */
+  .contact-item {
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Hover and active states for contacts */
+  .contact-item:hover {
+    background-color: #e2e2e2; /* Slightly darker shade on hover */
+  }
+  
+  .contact-item:active {
+    background-color: #d6d6d6; /* Even darker shade on click */
+  }
+  
+  /* Selected contact item (if needed) */
+  .contact-item.selected {
+    background-color: #007bff; /* Primary color for selected contact */
+    color: #fff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-list {
+      max-width: 100%; /* Full width on smaller screens */
+      flex-basis: 40%; /* Makes up 40% of the width in a responsive layout */
+    }
+  
+    .contact-item {
+      font-size: 14px; /* Slightly smaller text for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-list {
+      flex-basis: 100%; /* Takes up full width in mobile view */
+      padding: 5px;
+    }
+  
+    .contact-item {
+      font-size: 12px; /* Further reduced font size for compactness */
+      padding: 8px 10px;
+    }
+  }
+  

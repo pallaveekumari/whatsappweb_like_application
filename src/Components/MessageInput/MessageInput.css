@@ -1,0 +1,91 @@
+/* Container for the message input and send button */
+.message-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5; /* Light gray background for the input area */
+    border-top: 1px solid #ddd; /* Divider between the messages and input */
+    gap: 10px; /* Space between the input field and button */
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+  
+  /* Message input field styling */
+  .message-input {
+    flex: 1; /* Ensures the input field takes up the remaining space */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Subtle border around the input field */
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input field focus state */
+  .message-input:focus {
+    border-color: #007bff; /* Highlighted border color on focus */
+  }
+  
+  /* Send button styling */
+  .send-button {
+    background-color: #007bff; /* Primary color for the button */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Button hover and active states */
+  .send-button:hover {
+    background-color: #0056b3; /* Darker shade of primary color */
+  }
+  
+  .send-button:active {
+    transform: scale(0.95); /* Slightly shrinks the button on click */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .message-input-container {
+      padding: 8px;
+      gap: 8px; /* Reduce spacing on smaller screens */
+    }
+  
+    .message-input {
+      font-size: 14px; /* Slightly smaller text for input */
+      padding: 8px;
+    }
+  
+    .send-button {
+      width: 36px;
+      height: 36px;
+      font-size: 16px; /* Adjust button size and font for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .message-input-container {
+      padding: 5px;
+    }
+  
+    .message-input {
+      font-size: 12px; /* Compact font size for mobile */
+      padding: 6px;
+    }
+  
+    .send-button {
+      width: 32px;
+      height: 32px;
+      font-size: 14px; /* Further reduced size for very small screens */
+    }
+  }
+  
