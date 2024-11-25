@@ -1,51 +1,131 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
+
+// const useIndexedDB = (dbName = "MyAppDB", storeName = "users") => {
+//   let db;
+
+//   const openDB = () => {
+//     return new Promise((resolve, reject) => {
+//       const request = indexedDB.open(dbName, 1);
+//       request.onupgradeneeded = (event) => {
+//         db = event.target.result;
+//         if (!db.objectStoreNames.contains(storeName)) {
+//           db.createObjectStore(storeName, { keyPath: "id" });
+//         }
+//       };
+//       request.onsuccess = (event) => {
+//         db = event.target.result;
+//         resolve(db);
+//       };
+//       request.onerror = (event) => reject(event.target.error);
+//     });
+//   };
+
+//   const saveUserToIndexedDB = async (data) => {
+//     await openDB();
+//     return new Promise((resolve, reject) => {
+//       const transaction = db.transaction([storeName], "readwrite");
+//       const store = transaction.objectStore(storeName);
+//       const request = store.add(data);
+
+//       request.onsuccess = () => resolve(request.result);
+//       request.onerror = (event) => reject(event.target.error);
+//     });
+//   };
+
+//   const getUsersFromIndexedDB = async () => {
+//     await openDB();
+//     return new Promise((resolve, reject) => {
+//       const transaction = db.transaction([storeName], "readonly");
+//       const store = transaction.objectStore(storeName);
+//       const request = store.getAll();
+
+//       request.onsuccess = () => resolve(request.result);
+//       request.onerror = (event) => reject(event.target.error);
+//     });
+//   };
+
+//   useEffect(() => {
+//     openDB();
+//   }, []);
+
+//   return { saveUserToIndexedDB, getUsersFromIndexedDB };
+// };
+
+// export default useIndexedDB;
+
+
+import { useEffect, useState } from "react";
 
 const useIndexedDB = (dbName = "MyAppDB", storeName = "users") => {
-  let db;
+  const [db, setDb] = useState(null);
 
+  // Open the database and set the instance
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = indexedDB.open(dbName, 1);
+
       request.onupgradeneeded = (event) => {
-        db = event.target.result;
-        if (!db.objectStoreNames.contains(storeName)) {
-          db.createObjectStore(storeName, { keyPath: "id" });
+        const dbInstance = event.target.result;
+        if (!dbInstance.objectStoreNames.contains(storeName)) {
+          dbInstance.createObjectStore(storeName, { keyPath: "id" });
         }
       };
+
       request.onsuccess = (event) => {
-        db = event.target.result;
-        resolve(db);
+        const dbInstance = event.target.result;
+        setDb(dbInstance);
+        resolve(dbInstance);
       };
-      request.onerror = (event) => reject(event.target.error);
+
+      request.onerror = (event) => {
+        console.error("Error opening IndexedDB:", event.target.error);
+        reject(event.target.error);
+      };
     });
   };
 
+  // Save a user to IndexedDB
   const saveUserToIndexedDB = async (data) => {
-    await openDB();
+    if (!db) await openDB();
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([storeName], "readwrite");
       const store = transaction.objectStore(storeName);
       const request = store.add(data);
 
       request.onsuccess = () => resolve(request.result);
-      request.onerror = (event) => reject(event.target.error);
+      request.onerror = (event) => {
+        console.error("Error saving data to IndexedDB:", event.target.error);
+        reject(event.target.error);
+      };
     });
   };
 
+  // Fetch all users from IndexedDB
   const getUsersFromIndexedDB = async () => {
-    await openDB();
+    if (!db) await openDB();
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([storeName], "readonly");
       const store = transaction.objectStore(storeName);
       const request = store.getAll();
 
       request.onsuccess = () => resolve(request.result);
-      request.onerror = (event) => reject(event.target.error);
+      request.onerror = (event) => {
+        console.error("Error fetching data from IndexedDB:", event.target.error);
+        reject(event.target.error);
+      };
     });
   };
 
   useEffect(() => {
     openDB();
+
+    // Cleanup function (optional)
+    return () => {
+      if (db) {
+        db.close();
+        setDb(null);
+      }
+    };
   }, []);
 
   return { saveUserToIndexedDB, getUsersFromIndexedDB };
