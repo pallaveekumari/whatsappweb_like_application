@@ -6,10 +6,13 @@
 
 ## Technologies Used:
 
-1. React.js
-2. InstantDB 
-3. IndexedDB 
-4. CSS (Flexbox and Grid)
+1. Html
+2. CSS
+3. Javascript
+4. React.js
+5. InstantDB 
+6. IndexedDB 
+7. CSS (Flexbox and Grid)
 
 ## Features:
 
