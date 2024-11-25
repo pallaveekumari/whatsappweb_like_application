@@ -1,0 +1,41 @@
+.homepage {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f0f2f5; /* WhatsApp Web background */
+  }
+
+  .contact-list {
+    flex: 0 0 30%; /* Fixed width for the contact list */
+    background-color: #ffffff;
+    border-right: 1px solid #ddd; /* Separator line */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto; /* Scroll if content overflows */
+  }
+
+  .chat-window {
+    flex: 1; /* Takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    background-color: #ece5dd;
+    padding: 1rem;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .homepage {
+      flex-direction: column; /* Stack vertically on smaller screens */
+    }
+  
+    .contact-list {
+      flex: 0 0 auto; /* Allow it to resize naturally */
+      height: 40%; /* Take up less space */
+    }
+  
+    .chat-window {
+      flex: 1;
+      height: 60%;
+    }
+  }
