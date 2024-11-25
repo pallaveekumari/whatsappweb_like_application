@@ -12,7 +12,6 @@
 4. React.js
 5. InstantDB 
 6. IndexedDB 
-7. CSS (Flexbox and Grid)
 
 ## Features:
 
