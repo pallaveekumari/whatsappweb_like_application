@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+## How to Set Up and Run the Application
+1. Clone the repository: `git clone https://github.com/pallaveekumari/whatsappweb_like_application`
+2. Navigate to the project directory: `cd whatsapp-webapp`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used:
 
-## Available Scripts
+1. Html
+2. CSS
+3. Javascript
+4. React.js
+5. InstantDB 
+6. IndexedDB 
 
-In the project directory, you can run:
+## Features:
 
-### `npm start`
+1. Real-time messaging using InstantDB 
+2. Offline capabilities using IndexedDB 
+3. Contact-based chat UI 
+4. Responsive design 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Documentation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Modular Design:
+Each functionality is implemented as a separate, reusable component (e.g., ContactList, ChatWindow).
+State Management: React Context and useReducer are used to manage the global state of contacts and messages efficiently.
 
-### `npm test`
+## Data Handling:
+InstantDB is chosen for real-time synchronization of messages due to its speed and ease of use.
+IndexedDB ensures that messages are stored locally for offline access.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Challenges Faced
 
-### `npm run build`
+## Synchronization Between InstantDB and IndexedDB: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It was challenging to handle real-time updates from InstantDB and ensure the local IndexedDB remained consistent. This was resolved by implementing utility functions to handle updates to both databases simultaneously.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Performance Optimization: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Managing a large number of messages while maintaining responsiveness required careful optimization of React rendering with useMemo.
 
-### `npm run eject`
+## Usage of Core Concepts
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## React Hooks:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## useState: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Used for local state management, such as managing input fields and active contact.
+## useEffect: 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Handles side effects like fetching initial data from IndexedDB and subscribing to real-time updates from InstantDB.
+## useReducer: 
 
-## Learn More
+Centralized state management for messages and contacts with clear action types.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## React Context:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The global state for contacts and messages is provided through AppContext, making it accessible across components without prop drilling.
 
-### Code Splitting
+## Custom Hooks:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## useIndexedDB: 
 
-### Analyzing the Bundle Size
+Encapsulates logic for interacting with IndexedDB (saving and retrieving messages).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## useInstantDB: 
 
-### Making a Progressive Web App
+Manages real-time data synchronization with InstantDB.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Reducer:
 
-### Advanced Configuration
+## messagesReducer: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Used to handle state updates like adding new messages, deleting messages, and switching contacts.
 
-### Deployment
+## InstantDB:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Real-time message storage and retrieval are handled using API calls to InstantDB. Messages are pushed to InstantDB when sent and fetched in real time for display.
+## IndexedDB:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Provides offline capabilities by storing messages and contacts locally. If InstantDB is unavailable, data is retrieved from IndexedDB.
